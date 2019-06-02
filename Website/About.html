@@ -1,0 +1,317 @@
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+            <link rel="stylesheet" href="w3style.css">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+   
+    <!--Style of page-->
+    <style>
+            body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+            body {font-size:16px;}
+            .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+            .w3-half img:hover{opacity:1}
+            
+            .w3-sidebar {
+                z-index: 3;
+                width: 250px;
+                top: 43px;
+                bottom: 0;
+                 height: inherit;
+                }
+
+            img{
+              display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+            }
+            input{
+              margin-left: auto;
+            margin-right: auto;
+            }
+    </style>
+
+
+<script>
+    function GetPage()
+    {
+    $.get("http://99.245.132.174/Coffee", function(data, status){});
+    $.get("http://99.245.132.174/About", function(data, status){});
+    }
+    
+       
+   
+  </script>
+
+  <!--Main Page-->    
+  <body contenteditable="false">
+      
+      <!--Nav Bar-->
+          <div class="w3-top">
+              <div class="w3-row w3-large w3-red">
+                    <div class="w3-col s3">
+                      <a href="./SuperPage.html" class="w3-button w3-block">Home</a>
+                    </div>
+                    <div class="w3-col s3">
+                      <a onclick="GetPage();" href="./Coffee.html" class="w3-button w3-block">Order Coffee</a>
+                    </div>
+                    <div class="w3-col s3">
+                      <a onclick="GetPage();" href="./About.html" class="w3-button w3-block">About</a>
+                    </div>
+                    <div class="w3-col s3">
+                      <a href="./RoverWeb.html" class="w3-button w3-block">Login</a>
+                    </div>
+              </div>
+          </div>
+      <!--End of Nav Bar-->
+
+        <!-- Content -->
+        <div class="w3-content" style="max-width:auto; margin-top:80px;margin-bottom:20px">
+
+            <!--Head Title-->
+            <div class="w3-center">
+                    <h1 class="w3-jumbo"><b>About Page - Old Cards</b></h1>
+            </div>
+            <!--End of Head Title-->
+
+            <!--Camera Card-->
+            <div class="w3-padding">
+
+                    <div class="w3-container w3-card w3-light-grey w3-margin-bottom">
+                      <h2 class="w3-text-Blue font-size:10vw"></i>Rover Cam</h2>
+                      <div class="w3-container">
+                            <img id="display"src="./Assets/testCam.PNG" style="width:100%" class="w3-margin-bottom">
+                        <h5 class="w3-opacity"><b>On the way</b></h5>
+                        <button class="w3-button w3-Green w3-padding-large w3-hover-black w3-margin-bottom">Live</button>
+                      </div>
+                    </div>
+              </div>
+            <!--End of Camera Card-->
+
+           
+             <!--New Map Card-->
+             <div class="w3-padding">
+
+                <div class="w3-container w3-card w3-light-grey w3-margin-bottom">
+                  <h2 class="w3-text-Blue font-size:10vw"></i>Rover Diagnosis</h2>
+                  <h5  class="w3-opacity"><b>Stats : </b><b style="color:lawngreen" id="stats">Connteted</b></h5>
+                  <h5 class="w3-opacity"><b>IP : </b><b style="color:lawngreen">192.168.0.27</b></h5>
+                  <hr style="width:auto;border:5px solid gray" class="w3-round">
+                    <!--Neat Display-->
+                  <h5 class=" w3-center"><b>Front Sensor:</b><b id = "SF"> 50</b><b> cm</b></h5>
+                  <div class="w3-container">
+                        
+                        <div class="w3-row-padding w3-padding-16 w3-center">
+
+                        <div class="w3-third"><!--Left Sens Text-->
+                                <h5 class="y w3-center w3-margin-bottom" style="margin-left:auto; margin-top: 35%"><b>Left Sensor:</b><b id = "SL"> 50</b><b> cm</b></h5>
+                        </div>
+                        <div class="w3-third"><!--Image Rover Cad-->
+                                <img src="./Assets/RoverCadV2.PNG" style="width:70%">
+                        </div>
+                        <div class="w3-third"><!--Right Sens Text-->
+                                <h5 class=" w3-center w3-margin-bottom" style="margin-right:auto; margin-top: 35%"><b>Right Sensor:</b><b id = "SR"> 50</b><b> cm</b></h5>
+                        </div>
+
+                    </div>
+                    <h5 class=" w3-center"><b>Back Sensor:</b><b id = "SB"> 50</b><b> cm</b></h5>
+                    <p class=" w3-center slidecontainer w3-margin-bottom" >Speed Range Slider :</p>
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                    <h5 class=" w3-center w3-margin-bottom" style="margin-top: center"></h5>
+                    </div>
+                    <!--Motor Control-->
+                    <div class="w3-container w3-center">
+
+                            <div class="w3-quarter"><!--Drive Button-->
+                                <button  class="w3-button w3-orange e w3-hover-black w3-padding-large w3-margin-bottom" onclick="DriveMotor();">Drive</button>
+                            </div>
+                            <div class="w3-quarter"><!--Back Button-->
+                                <button class="w3-button w3-orange  w3-hover-black w3-padding-large w3-margin-bottom" onclick="BackMotor();">Back</button>
+                            </div>
+                            <div class="w3-quarter"><!--Left Button-->
+                                <button class="w3-button w3-orange  w3-hover-black w3-padding-large w3-margin-bottom" onclick="LeftMotor();">Left</button>
+                            </div>
+                            <div class="w3-quarter"><!--Right Button-->
+                                <button class="w3-button w3-orange  w3-hover-black w3-padding-large w3-margin-bottom" onclick="RightMotor();">Right</button>
+                            </div>
+                    </div>
+                    <div class="w3-center"><!--Stop Button-->
+                            <button class="w3-button w3-red w3-padding-large w3-hover-black w3-margin-bottom w3-center" onclick="StopMotor();">Stop Motors</button>
+                    </div>
+                    
+                  </div>
+                </div>
+          </div>
+        </div>
+        <!--End of New Mao Card-->
+        <div class="w3-content">
+             <!--Map Card-->
+             <div class="w3-padding" >
+                <div class="w3-container w3-card w3-light-grey w3-margin-bottom">
+                  
+                      <h2 class="w3-text-Blue w3-jumbo w3-margin-left"></i>Map View</h2>
+                      <div class="w3-container">
+                            <div id="googleMap" style="width:100%;height:400px;" class="w3-margin-bottom"></div>
+                            <hr style="width:auto;border:5px solid gray" class="w3-round">
+                            <img src="./Assets/school.png" style="width:50%" class="w3-margin-bottom">
+                        <h5 class="w3-opacity"><b>Wifi APS</b></h5>
+                        <ul>
+                            <li>Mac: <b>Fx-4x-x6-f-5</b></li>
+                            <li>Mac: <b>Fx-4x-x6-f-5</b></li>
+                            <li>Mac: <b>Fx-4x-x6-f-5</b></li>
+                            <li>Mac: <b>Fx-4x-x6-f-5</b></li>
+
+                        </ul>
+                        <button class="w3-button w3-Green w3-padding-large w3-hover-black w3-margin-bottom">Serach Wifi Nodes</button>
+                        <button id = "find-me" class="w3-button w3-Green w3-padding-large w3-hover-black w3-margin-bottom">Show my location</button><br/>
+                        <p id = "status"></p>
+                        <a id = "map-link" target="_blank"></a>
+                      </div>
+                    
+                     </div>
+              </div>
+            <!--End of Map Card-->
+          
+     </div>
+     <!--End of Content-->
+</body>
+<!--Scripts-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+
+
+ 
+</script>
+<!--Get Sensor Data-->
+<script>
+  window.onload = function(){
+    // your code here
+   setInterval(()=>{
+   $.get("http://99.245.132.174/Sensor", function(data, status){
+  
+    const Front = document.getElementById("SF");
+   const Back = document.getElementById("SB");
+   const Left = document.getElementById("SL");
+   const Right = document.getElementById("SR")
+   const Stats = document.getElementById("stats");
+   const displayHtml = document.getElementById('display');
+   Front.innerHTML = (' ' + data.FrontSen);
+   Back.innerHTML = (' ' + data.BackSen);
+   Left.innerHTML = (' ' + data.LeftSen);
+   Right.innerHTML = (' ' + data.RightSen);
+   console.log("Somethis ")
+    if(data.Image == "./Assets/testCam.PNG")
+    {
+      console.log("Offline");
+      displayHtml.src = data.Image;
+      Stats.innerHTML = "Offline";
+      Stats.style = "color:red";
+      //style="color:lawngreen"
+    }
+    else if (data.Image == undefined)
+    {
+      displayHtml.src = data.Image;
+      console.log("Time Out");
+      Stats.innerHTML = "Time Out";
+      Stats.style = "color:yellow";
+    }
+    else{
+    let image = data.Image;
+    displayHtml.src = `data:image/jpeg;base64,${image}`
+    console.log(`data:image/jpeg;base64,${image}`);
+    Stats.innerHTML = "Connected";
+    Stats.style = "color:lawngreen";
+    }
+    
+   
+  });
+
+  },200)
+
+ }
+</script>
+<!--End OF Get Sensor Data-->
+<!--Send Motor-->
+<script>
+function DriveMotor()
+{
+
+  $.post("http://99.245.132.174/Motor",
+  {
+    Action: "Drive"
+  },
+  function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+
+}
+
+function BackMotor()
+{
+
+  $.post("http://99.245.132.174/Motor",
+  {
+    Action: "Back"
+  },
+  function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+
+}
+
+function LeftMotor()
+{
+
+  $.post("http://99.245.132.174/Motor",
+  {
+    Action: "Left"
+  },
+  function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+
+}
+
+function RightMotor()
+{
+
+  $.post("http://99.245.132.174/Motor",
+  {
+    Action: "Right"
+  },
+  function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+
+}
+
+function StopMotor()
+{
+
+  $.post("http://99.245.132.174/Motor",
+  {
+    Action: "Stop"
+  },
+  function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+
+}
+</script>
+<!--End OF Send Motor-->
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFySuUoJBA0X01mnqEXfGS_9FrSqaXg1w&callback=myMap"></script>
+
+<!--Enf of Get Location Code-->
+</html>
