@@ -14,20 +14,23 @@ const router = express.Router();
         Networks: "no wifi",
     }
 
-    //CleanData.CleanData = new CleanData(sendata);
-   // CleanData.Print(sendata);
+    
  //Routes__________________________________________________________________________________  
     //This Method Well Respond with RoverData
     router.get('/',(req,res,next) =>{
         res.setHeader('Access-Control-Allow-Origin', 'http://99.245.132.174');
+        res.setHeader('Access-Control-Allow-Origin', 'http://schoolrover.ca');
         res.setHeader('Access-Control-Allow-Methods', 'GET');
         sendata.SmartData = TempSmart;
         res.status(200).send(sendata) 
         SmartRover();
+        res.end();
+       // console.log("Website Geting Data")
     });
     
     //This Method Well Request the data from the Rover
     router.post('/',(req,res,next) =>{
+      //  console.log("You It you BOt")
         const RoverData = {
             FrontSen: req.body.FrontSen,
             BackSen: req.body.BackSen,
@@ -37,17 +40,18 @@ const router = express.Router();
             Networks: req.body.Networks,
         }
         sendata = RoverData
-        res.end("I got it ");
-        SetWifi(sendata);
-        SmartRover();
+       res.end("I got it ");
+       // SetWifi(sendata);
+        //SmartRover();
         
     });
     //This Method Well Send The Motor Command to The Rover
     router.get('/M',(req,res,next) =>{
         res.setHeader('Access-Control-Allow-Origin', 'http://99.245.132.174');
+        res.setHeader('Access-Control-Allow-Origin', 'http://schoolrover.ca');
         res.setHeader('Access-Control-Allow-Methods', 'GET');
         res.status(200).send(Motordata) 
-
+        res.end()
     });
     //This Method Well Get the Smart Camera Data from Vison Worker
     router.post('/cam',(req,res,next) =>{
