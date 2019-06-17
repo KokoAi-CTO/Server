@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Rover HomePage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/png" href="./Assets/picrover.png">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-brown w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-brown" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="./SuperPage.html" class="w3-bar-item w3-button w3-padding-large w3-white"style="font-size: large;">Home</a>
+      <a onclick="GetPage();" href="./Coffee.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" style="font-size: large;">Order Coffee</a>
+      <a href="./Login.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" style="font-size: large;">Login</a>
+      <a onclick="GetPage();" href="./About.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" style="font-size: large;">About</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" style="font-size: large;">School</a>
+    </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="./SuperPage.html"  class="w3-bar-item w3-button w3-padding-large">Home</a>
+      <a onclick="GetPage();" href="./Coffee.html" class="w3-bar-item w3-button w3-padding-large">Order Coffee</a>
+      <a href="./Login.html" class="w3-bar-item w3-button w3-padding-large">Login</a>
+      <a onclick="GetPage();" href="./About.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">School</a>
+    </div>
+  </div>
+<!--End of NavBar-->
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+
+    <!--Head Title-->
+    <div class="w3-center">
+            <h1 class="w3-jumbo"><b>Admin-Rover-Disgonis</b></h1>
+            <hr width="100%" COLOR="#217308" size="3">
+    </div>
+    <!--End of Head Title-->
+    
+    <!-- Grid -->
+    <div class="w3-row">
+    
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+      <!-- Coffee entry -->
+      <div class="w3-card-4 w3-margin w3-white">
+
+        <div class="w3-container">
+          
+          <h2 class="w3-text-Blue font-size:10vw"></i>Rover Diagnosis</h2>
+        </div>    
+        <div class="w3-container">
+          <!--Blog Description-->
+          <h3><b>Bot Control</b></h3>
+          <h5  class="w3-opacity"><b>Stats : </b><b style="color:green" id="stats">Connteted</b></h5>
+          <h5 class="w3-opacity"><b>IP : </b><b style="color:green">192.168.0.27</b></h5>
+          <hr style="width:auto;border:5px solid gray" class="w3-round">
+            <!--Neat Display-->
+            <img id="display"src="./Assets/testCam.PNG" style="width:100%; display: none;" class="w3-margin-bottom">
+            <canvas id="canvas" width="240" height="297" class="w3-margin-bottom"></canvas>  
+            
+          <div class="w3-container">
+                <h5  class="w3-opacity"><b>Object Detection</b></h5>
+                <div class="w3-row-padding w3-padding-16 w3-center">
+
+                <div class="w3-quarter"><!--Left Sens Text-->
+                  <h5 class=" w3-center w3-margin-bottom" style="margin-right:auto; margin-top: 35%"><b>Front Sensor:</b><b id = "SF"> 50</b><b> cm</b></h5>
+                </div>
+                <div class="w3-quarter"><!--Image Rover Cad-->
+                  <h5 class="y w3-center w3-margin-bottom" style="margin-left:auto; margin-top: 35%"><b>Left Sensor:</b><b id = "SL"> 50</b><b> cm</b></h5>
+                </div>
+                <div class="w3-quarter"><!--Right Sens Text-->
+                  <h5 class=" w3-center w3-margin-bottom" style="margin-right:auto; margin-top: 35%"><b>Right Sensor:</b><b id = "SR"> 50</b><b> cm</b></h5>
+                </div>
+                <div class="w3-quarter"><!--Right Sens Text-->
+                  <h5 class=" w3-center w3-margin-bottom" style="margin-right:auto; margin-top: 35%"><b>Back Sensor:</b><b id = "SB"> 50</b><b> cm</b></h5>
+                </div>
+
+            </div>
+            <p class=" w3-center slidecontainer w3-margin-bottom" >Speed Range Slider :</p>
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <h5 class=" w3-center w3-margin-bottom" style="margin-top: center"></h5>
+            </div>
+            <!--Motor Control-->
+            <div class="w3-container w3-center">
+
+                    <div class="w3-quarter"><!--Drive Button-->
+                        <button  class="w3-button w3-orange e w3-hover-black w3-padding-large w3-margin-bottom" onclick="DriveMotor();">Drive</button>
+                    </div>
+                    <div class="w3-quarter"><!--Back Button-->
+                        <button class="w3-button w3-orange  w3-hover-black w3-padding-large w3-margin-bottom" onclick="BackMotor();">Back</button>
+                    </div>
+                    <div class="w3-quarter"><!--Left Button-->
+                        <button class="w3-button w3-orange  w3-hover-black w3-padding-large w3-margin-bottom" onclick="LeftMotor();">Left</button>
+                    </div>
+                    <div class="w3-quarter"><!--Right Button-->
+                        <button class="w3-button w3-orange  w3-hover-black w3-padding-large w3-margin-bottom" onclick="RightMotor();">Right</button>
+                    </div>
+            </div>
+            <div class="w3-center"><!--Stop Button-->
+                    <button class="w3-button w3-red w3-padding-large w3-hover-black w3-margin-bottom w3-center" onclick="StopMotor();">Stop Motors</button>
+                    <button class="w3-button w3-red w3-padding-large w3-hover-black w3-margin-bottom w3-center" onclick="SmarCam();">SmartCam</button>
+            </div>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    <!--End of Coffee entry -->
+      <!-- Blog entry -->
+      <div class="w3-card-4 w3-margin w3-white">
+      <img src="./Assets/book1.png" alt="Nature" style="width:100%">
+        <div class="w3-container">
+          <h3><b>BLOG ENTRY</b></h3>
+          <h5>Welcome To Goetz Cafe, <span class="w3-opacity">June 21, 2019</span></h5>
+        </div>
+    
+        <div class="w3-container">
+          <!--Description in first box-->
+          <p>Currently students at Goetz wait anxiously for the upcoming Exams</p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    <!-- END BLOG ENTRIES -->
+    </div>
+    
+    <!-- Introduction menu -->
+    <div class="w3-col l4">
+      <!--Live cam-->
+      <div class="w3-card w3-margin w3-margin-top">
+          <div class="w3-container w3-white">
+            <img id="display"src="./Assets/testCam.PNG" style="width:100%;" class="w3-margin-bottom">
+            <h4><b>Live VIew</b></h4>
+            <p>Here Is a View of the Robot</p>
+          </div>
+      </div><hr>
+      <!-- Coffee Listing -->
+      <div class="w3-card w3-margin">
+        <div class="w3-container w3-padding">
+          <!--Pictures of coffee-->
+          <h4>Popular Ordered Coffee</h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+          <li class="w3-padding-16">
+            <img src="./Assets/download.png" alt="Image" class="w3-left w3-margin-right" style="width:40px">
+            <span class="w3-large">Iced Tea</span><br>
+            <span>Most Liked</span>
+          </li>
+          <li class="w3-padding-16">
+                <img src="./Assets/decaf.png" alt="Image" class="w3-left w3-margin-right" style="width:40px">
+                <span class="w3-large">Decaf</span><br>
+                <span>Most Liked</span>
+          </li> 
+          <li class="w3-padding-16">
+                <img src="./Assets/hotchoco.png" alt="Image" class="w3-left w3-margin-right" style="width:40px">
+                <span class="w3-large">Hot Chocolate</span><br>
+                <span>Most Liked</span>
+          </li>   
+          <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                <img src="./Assets/dark-roast-product-v2.png" alt="Image" class="w3-left w3-margin-right" style="width:40px">
+                <span class="w3-large">Dark-Roast</span><br>
+                <span>Most Liked</span>
+          </li>  
+        </ul>
+      </div>
+      <hr> 
+     <!--End of Coffee Listing -->
+     
+      <!-- Clubs List-->
+      <div class="w3-card w3-margin">
+        <div class="w3-container w3-padding">
+          <h4>List Of Clubs at Goetz</h4>
+        </div>
+        <div class="w3-container w3-white">
+        <p><span class="w3-tag w3-black w3-margin-bottom">SHSM</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">French Club</span>
+          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Best Buddies</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Goetz Basketball</span>
+          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Track and Field</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Math Club</span>
+          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Anime Club</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Science Club</span>
+          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Robotics Club</span>
+        </p>
+        </div>
+      </div>
+      <!-- EnD of Clubs List-->
+
+    </div>
+</div>
+    <!-- Footer -->
+	  <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+      <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+      <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+    </footer>
+  <!--End of Footer-->
+</body>
+<!--Script Code-->
+<script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+          var x = document.getElementById("navDemo");
+          if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+          } else { 
+            x.className = x.className.replace(" w3-show", "");
+          }
+        }
+</script>
+
+<!--Canvas Code-->
+<script>
+
+        function startGame() {
+            myGameArea.start();
+        }
+        
+        var myGameArea = {
+            canvas : document.getElementById("CMap"),
+           
+            start : function() {
+                this.canvas.width = 780;
+                
+                this.canvas.height = 270;
+                this.context = this.canvas.getContext("2d"); 
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            }
+        
+      
+      }
+      
+      </script>
+      <!--End pf Canvas Code-->
+      
+      
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+      <script>
+         var canvas = document.getElementById('canvas');
+          var ctx = canvas.getContext('2d');
+      function draw_sample_image_in_canvas(imgs) {
+         
+        var image = document.getElementById('display');
+        
+        canvas.width = image.width;
+          canvas.height = image.height;
+              ctx.drawImage(image, 0,0 ,image.width, image.height);
+      
+      }
+      
+      //var canvas = document.getElementById('canvas');
+         // var ctx = canvas.getContext('2d');
+        function SmarCam(predictions) {
+         
+        
+          var image = document.getElementById('display');
+          //var imagedum = document.getElementById('img');
+          
+          //imagedum.src = ims;
+         // console.log(image);
+         image.width = 919;
+         image.height = 612;
+         console.log(image.width);
+          console.log(image.height);
+         canvas.width = 919;
+          canvas.height = 612;
+          draw_res_image(canvas, ctx, image, predictions);
+       
+        }
+      
+      function draw_bbox(ctx, predictions, font) {
+          predictions.forEach(function (prediction) {
+              var x = prediction.bbox[0];
+              var y = prediction.bbox[1];
+              var width = prediction.bbox[2];
+              var height = prediction.bbox[3];
+              ctx.strokeRect(x, y, width, height);
+              var textWidth = ctx.measureText(prediction.class).width;
+              var textHeight = parseInt(font, 10); // base 10
+              ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
+          });
+      }
+      
+      function draw_label(ctx, predictions) {
+          predictions.forEach(function (prediction) {
+              var x = prediction.bbox[0];
+              var y = prediction.bbox[1];
+      
+              ctx.fillStyle = '#000000';
+              ctx.fillText(prediction.class, x, y);
+          });
+      }
+      
+      function draw_res_image(canvas, ctx, image, predictions) {
+          var font = '26px sans-serif';
+      
+          canvas.width = image.width;
+          canvas.height = image.height;
+         // ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+          ctx.drawImage(image, 0, 0, ctx.canvas.width, ctx.canvas.height);
+      
+          ctx.font = font;
+          ctx.textBaseline = 'top';
+          ctx.strokeStyle = '#00FFFF';
+          ctx.lineWidth = 3;
+          ctx.fillStyle = '#00FFFF';
+      
+         // $('#spinner').hide();
+          draw_bbox(ctx, predictions, font);
+          draw_label(ctx, predictions);
+      }
+      
+      </script>
+      <!--Get Sensor Data-->
+      <script>
+          window.onload = function(){
+            // your code here
+            var smdata ;
+           setInterval(()=>{
+           $.get("http://99.245.132.174/Sensor", function(data, status){
+          
+            const Front = document.getElementById("SF");
+           const Back = document.getElementById("SB");
+           const Left = document.getElementById("SL");
+           const Right = document.getElementById("SR")
+           const Stats = document.getElementById("stats");
+           const displayHtml = document.getElementById('display');
+           Front.innerHTML = (' ' + data.FrontSen);
+           Back.innerHTML = (' ' + data.BackSen);
+           Left.innerHTML = (' ' + data.LeftSen);
+           Right.innerHTML = (' ' + data.RightSen);
+           //console.log("Somethis ")
+            if(data.Image == "./Assets/testCam.PNG")
+            {
+             // console.log("Offline");
+              displayHtml.src = data.Image;
+              Stats.innerHTML = "Offline";
+              Stats.style = "color:red";
+              //style="color:lawngreen"
+            }
+            else if (data.Image == undefined)
+            {
+              displayHtml.src = data.Image;
+             // console.log("Time Out");
+              Stats.innerHTML = "Time Out";
+              Stats.style = "color:yellow";
+            }
+            else{
+            let image = data.Image;
+            displayHtml.src = `data:image/jpeg;base64,${image}`
+           // console.log(`data:image/jpeg;base64,${image}`);
+            Stats.innerHTML = "Connected";
+            Stats.style = "color:green";
+            
+            }
+            //console.log(data.SmartData);
+            if(data.SmartData == undefined){console.log("Some Baddddddd Shit ")}
+            smdata = data.SmartData;
+           
+          });
+      
+          },200)
+          setInterval(()=>{SmarCam(smdata); },200)
+         }
+      </script>
+      <!--End OF Get Sensor Data-->
+      
+      <!--Send Motor-->
+      <script>
+        var Speedr = "120";
+          var Speedl = "120";
+        function DriveMotor()
+        {
+          
+          $.post("http://99.245.132.174/Motor",
+          {
+            Action: "Drive",
+            rspeed: Speedr,
+            lspeed: Speedl,
+          },
+          function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+      
+        }
+      
+        function BackMotor()
+        {
+          
+          $.post("http://99.245.132.174/Motor",
+          {
+            Action: "Back",
+            rspeed: Speedr,
+            lspeed: Speedl,
+          },
+          function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+      
+        }
+      
+        function LeftMotor()
+        {
+      
+          $.post("http://99.245.132.174/Motor",
+          {
+            Action: "Left",
+            rspeed: Speedr,
+            lspeed: Speedl,
+          },
+          function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+      
+        }
+      
+        function RightMotor()
+        {
+      
+          $.post("http://99.245.132.174/Motor",
+          {
+            Action: "Right",
+            rspeed: Speedr,
+            lspeed: Speedl,
+          },
+          function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+      
+        }
+      
+        function StopMotor()
+        {
+      
+          $.post("http://99.245.132.174/Motor",
+          {
+            Action: "Stop",
+          
+          },
+          function(data, status){console.log("Data: " + data + "\nStatus: " + status);});
+      
+        }
+      </script>
+       <!--End OF Send Motor-->
+      <!--Start of Google Map-->
+      <script>
+        function myMap() {
+        var mapProp= {
+          center:new google.maps.LatLng(51.508742,-0.120850),
+          zoom:5,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFySuUoJBA0X01mnqEXfGS_9FrSqaXg1w&callback=myMap"></script>
+        <!--Enf of Get Location Code-->
+</html>

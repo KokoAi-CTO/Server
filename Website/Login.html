@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Rover HomePage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/png" href="./Assets/picrover.png">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+
+<!--Style of page-->
+<style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+
+button:hover {
+opacity: 0.8;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-brown w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-brown" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="./SuperPage.html" class="w3-bar-item w3-button w3-padding-large w3-white"style="font-size: large;">Home</a>
+      <a onclick="GetPage();" href="./Coffee.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" style="font-size: large;">Order Coffee</a>
+      <a href="./Login.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" style="font-size: large;">Login</a>
+      <a onclick="GetPage();" href="./About.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" style="font-size: large;">About</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" style="font-size: large;">School</a>
+    </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="./SuperPage.html"  class="w3-bar-item w3-button w3-padding-large">Home</a>
+      <a onclick="GetPage();" href="./Coffee.html" class="w3-bar-item w3-button w3-padding-large">Order Coffee</a>
+      <a href="./Login.html" class="w3-bar-item w3-button w3-padding-large">Login</a>
+      <a onclick="GetPage();" href="./About.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">School</a>
+    </div>
+  </div>
+<!--End of NavBar-->
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+
+    <!--Head Title-->
+    <div class="w3-center">
+            <h1 class="w3-jumbo"><b>Goetz Robot Rover</b></h1>
+            <img style="width: 350px; height: 350px;" src="./Assets/gator.png" alt="" style="width:100%">
+            <hr width="100%" COLOR="#217308" size="3">
+    </div>
+    <!--End of Head Title-->
+    
+    <!-- Grid -->
+    <div class="w3-row">
+    
+    <!-- Login Card -->
+    <div class="w3-center">
+      <!-- Coffee entry -->
+      <div class="w3-card-4 w3-margin w3-white">
+        <div class="w3-container">
+          <h3><b>Login</b></h3>
+          <h5>Welcome To Goetz Coffee Shop, <span class="w3-opacity">June 21, 2019</span></h5>
+        </div>    
+        <div class="w3-container">
+          <!--Blog Description-->
+            <!--Start OF Login From-->
+            <div id="id01" class="modal">
+  
+                <form >
+                  <div class="imgcontainer">                          
+                    <img src="./Assets/Login.PNG" alt="Avatar" class="avatar">
+                  </div>
+              
+                  <div class="container">
+                    <label ><b>Username</b></label>
+                    <input id="inputUsername" type="text" placeholder="Enter Username" name="uname" required>
+              
+                    <label for="psw"><b>Password</b></label>
+                    <input id="inputPassword" type="password" placeholder="Enter Password" name="psw" required>
+                    
+                    <label>
+                      <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                  </div>
+                  <div class="container" style="background-color:#f1f1f1">
+                    <button class="w3-button w3-block w3-red ">Cancel</button>
+                  </div>
+                </form>
+                <button onclick="Checklogin()" >Login</button>
+                <!--END OF Login From-->
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+	  <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+      <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+      <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+    </footer>
+    <!--End of Footer-->
+</body>
+<!--Script Code-->
+<script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+          var x = document.getElementById("navDemo");
+          if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+          } else { 
+            x.className = x.className.replace(" w3-show", "");
+          }
+        }
+</script>
+
+<script>
+    function GetPage()
+    {
+    $.get("http://99.245.132.174/Coffee", function(data, status){});
+    $.get("http://99.245.132.174/About", function(data, status){});
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!--Login Check Code-->
+<script>
+function Checklogin()
+{ 
+  
+  var User = document.getElementById("inputUsername").value;
+  var Pass = document.getElementById("inputPassword").value;
+  $.post("http://schoolrover.ca/UserAPI",
+    {
+      UserName: User,
+      PassWord: Pass,
+    },//wheres the code that says true or false
+    function(data, status){ alert("Data: " + data + "\nStatus: " + status); if(data == "true"){ console.log("somethink ");window.open("http://schoolrover.ca/Admin.html")}}) ;
+ // console.log(User); what does $.post mean so when a preson press Login it gone go send a COmmand a Post to the Server to the API
+ // console.log(Pass); yo get it kinda but wheres the thing that detects if the password is right or wrong JSu and it well check in the server  
+}//lemme jsut try something even though it might fail lol
+</script>
+<!--End of Check Code-->
+<!--End of Script Code-->
+</html>

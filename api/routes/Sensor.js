@@ -1,68 +1,89 @@
+//Author: Khalid
+//Date: June 17, 2019
+//Description: This API handles incoming rover data and outgoing requests for sensory data 
 const express = require('express');
 const CleanData = require('./SmartRover/dataCleaning');
 const router = express.Router();
 
     
-    var TempSmart = null;
-    sendata = {
-        FrontSen:"off",
-        BackSen: "off",
-        LeftSen: "off",
-        RightSen: "off",
-        Image: "./Website/Assets/testCam.PNG",
-        SmartData: "",
-        Networks: "no wifi",
+    var TempObjgetDicData = null; 
+    //A JavaScript Objget JSON JavaScript Object Notation - Descrption : A JSON Can Hold String data type and Arrays JSON Is Used To communicate across multiple Paltfroms
+   sendata  = {
+        FrontSen:"off", //Front Sensor Data Var 
+        BackSen: "off", //Front Sensor Data Var
+        LeftSen: "off", //Front Sensor Data Var
+        RightSen: "off", //Front Sensor Data Var
+        Image: "./Website/Assets/testCam.PNG", //Image Data Var
+        SmartData: "", //Object Detection Data Var
+        Networks: "no wifi", //Neighboring WiFi Data
     }
 
-    
- //Routes__________________________________________________________________________________  
-    //This Method Well Respond with RoverData
-    router.get('/',(req,res,next) =>{
-        res.setHeader('Access-Control-Allow-Origin', 'http://99.245.132.174');
+ //______________________________________________________________________________API Routes___________________________________________________________________
+    //Descrption - 2 Types of HTTP protocols are Used GET and POST - GET HTTP Well SEND Data POST HTTP well receive DATA
+
+    //--------------------------------Route wiil respond with rover data.
+    router.get('/',(req,res) =>{ //Setting a new Route to /Sensor/ Request and Respond - GET Method.
+        res.setHeader('Access-Control-Allow-Origin', 'http://99.245.132.174'); //Grants access to API from the Origin : security feature by the browser
         res.setHeader('Access-Control-Allow-Origin', 'http://schoolrover.ca');
-        res.setHeader('Access-Control-Allow-Methods', 'GET');
-        sendata.SmartData = TempSmart;
-        res.status(200).send(sendata) 
+        res.setHeader('Access-Control-Allow-Methods', 'GET'); 
+        sendata.SmartData = TempObjgetDicData; //This is Just for Optimization for Object detection just to Make Sure to Have the Newest Data.
+        res.status(200).send(sendata) //Then Send the Data Respond With RoverData .
         SmartRover();
-        res.end();
-       // console.log("Website Geting Data")
+        res.end(); //Then Close the Connection. 
+       // console.log("Website is retrieving data")
     });
     
-    //This Method Well Request the data from the Rover
-    router.post('/',(req,res,next) =>{
-      //  console.log("You It you BOt")
+    //----------------------------------This route will handle incoming Rover data.
+    router.post('/',(req,res) =>{ //Setting a new Route to /Sensor/ Request and Respond - POST Method
         const RoverData = {
-            FrontSen: req.body.FrontSen,
-            BackSen: req.body.BackSen,
+            FrontSen: req.body.FrontSen, //Request Data from Rover exp: Request.FrontSensor Data - .body is there Becuase Sometimes we are Parsing from HTML CODE
+            BackSen: req.body.BackSen, 
             LeftSen: req.body.LeftSen,
             RightSen: req.body.RightSen,
             Image: req.body.ImageData,
             Networks: req.body.Networks,
         }
-        sendata = RoverData
-       res.end("I got it ");
-       // SetWifi(sendata);
-        //SmartRover();
-        
+        sendata = RoverData //Setting The Reiicvied RoverData to Server Sendata JSON Object
+        res.end("Data received"); //Then End the Connection. 
+       // console.log("Data received from Rover")
     });
-    //This Method Well Send The Motor Command to The Rover
-    router.get('/M',(req,res,next) =>{
+
+    //-----------------------------------This route will respond with Motor Action data For the ROVER
+    router.get('/M',(req,res,next) =>{ // Setting a new Route to /Sensor/M Request and Respond - GET Method
         res.setHeader('Access-Control-Allow-Origin', 'http://99.245.132.174');
         res.setHeader('Access-Control-Allow-Origin', 'http://schoolrover.ca');
         res.setHeader('Access-Control-Allow-Methods', 'GET');
-        res.status(200).send(Motordata) 
-        res.end()
+        res.status(200).send(Motordata); //Then Send MotorAction Data to the Rover.
+        res.end(); //Then End the Connection.
+        // console.log("Motor Data Command Send To Rover")
     });
-    //This Method Well Get the Smart Camera Data from Vison Worker
-    router.post('/cam',(req,res,next) =>{
-        const SmartData = {
-            SmartImage: req.body.SmartImage
+
+    //------------------------------------This route will handle incoming object detection data from Tensorflow agent 
+    router.post('/cam',(req,res,next) =>{ //Setting a new Route to /Sensor/Cam Request and Respond - POST Method 
+        const ResObjgetDicData = { //Request Object Detection Data 
+            SmartImage: req.body.SmartImage 
         }
-        TempSmart  = SmartData.SmartImage;
-        res.end("I got it ");
+        TempObjgetDicData  = ResObjgetDicData.SmartImage; //Set the Data to Temp : Why not storeing it right away beucuse to Conter the Deyla 
+        res.end("Object data received"); //Then End the Connection. 
+        //console.log("Rover Motor Command Send To Rover")
     });
     
-    function SetWifi(sendata){
+    
+//_____________________________________________________________________________________End of Routes__________________________________________________________________________________  
+
+//__________________________________________________________________________________Other Current Method__________________________________________________________
+    //Simple Motor Contorle
+    function SmartRover() //Simple Method to Test Out stoping Based on Sensor Data 
+    {
+        if(sendata.FrontSen < 40){ // if the Front Sensor is less than 40cm then Stop The Motors. 
+    
+            Motordata.Action = "Stop"
+        }
+    }
+
+//________________________________________________________________________________Currently unused methods___________________________________________________________
+    function SetWifi(sendata) //Method just to Display Wifi INFO Disbled at of this Moment 
+    {
         console.log(sendata.Networks.length);
         sendata.Networks.forEach(function(element) 
         {
@@ -73,17 +94,5 @@ const router = express.Router();
          
         });
     }
-//End of Routes__________________________________________________________________________________  
-
-
-    //Simple Motor Contorle
-    function SmartRover()
-    {
-        if(sendata.FrontSen < 40){
-    
-            Motordata.Action = "Stop"
-        }
-    }
-    
-module.exports = router;
+module.exports = router; //Exporting all the route Methods to be Used the by Main APP.js 
 
