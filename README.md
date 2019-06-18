@@ -17,15 +17,19 @@ Requirements:
 
 Step 1:
 Open Vscode. 
+
 Step 2: 
 Press OpenFolder.
+
 Step 3:
 Open the Server Master File that you Download.
 
 Step 4: 
 Click on app.js
+
 Step 5:
 Open a Terminal - Make Sure it a CMD not PowerShell Should't Realy Matter
+
 
 Install the dependencies
 ```sh
