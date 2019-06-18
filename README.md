@@ -32,12 +32,13 @@ Open a Terminal - Make Sure it a CMD not PowerShell Should't Realy Matter
 
 
 Install the dependencies
+Commands
 ```sh
-$ npm install 
+ npm install 
 ```
 Run the Server
 ```sh
-$ npm start
+ npm start
 ```
 
 ```sh
