@@ -1,13 +1,14 @@
 //Author: Khalid
 //Date: June 17, 2019
 //Description: This API handles incoming rover data and outgoing requests for sensory data 
+//Library delclaration
 const express = require('express');
 const CleanData = require('./SmartRover/dataCleaning');
 const router = express.Router();
 
     
     var TempObjgetDicData = null; 
-    //A JavaScript Objget JSON JavaScript Object Notation - Descrption : A JSON Can Hold String data type and Arrays JSON Is Used To communicate across multiple Paltfroms
+    //A JavaScript Object JSON JavaScript Object Notation - Descrption : A JSON Can Hold String data type and Arrays JSON Is Used To communicate across multiple Platforms
    sendata  = {
         FrontSen:"off", //Front Sensor Data Var 
         BackSen: "off", //Front Sensor Data Var
@@ -36,7 +37,7 @@ const router = express.Router();
     //----------------------------------This route will handle incoming Rover data.
     router.post('/',(req,res) =>{ //Setting a new Route to /Sensor/ Request and Respond - POST Method
         const RoverData = {
-            FrontSen: req.body.FrontSen, //Request Data from Rover exp: Request.FrontSensor Data - .body is there Becuase Sometimes we are Parsing from HTML CODE
+            FrontSen: req.body.FrontSen, //Request Data from Rover exp: Request.FrontSensor Data   |  .body is there Becuase Sometimes we are Parsing from HTML CODE
             BackSen: req.body.BackSen, 
             LeftSen: req.body.LeftSen,
             RightSen: req.body.RightSen,
@@ -45,6 +46,8 @@ const router = express.Router();
         }
         sendata = RoverData //Setting The Reiicvied RoverData to Server Sendata JSON Object
         res.end("Data received"); //Then End the Connection. 
+        
+       // Debug
        // console.log("Data received from Rover")
     });
 
@@ -55,6 +58,7 @@ const router = express.Router();
         res.setHeader('Access-Control-Allow-Methods', 'GET');
         res.status(200).send(Motordata); //Then Send MotorAction Data to the Rover.
         res.end(); //Then End the Connection.
+        //DEBUG
         // console.log("Motor Data Command Send To Rover")
     });
 
@@ -63,7 +67,7 @@ const router = express.Router();
         const ResObjgetDicData = { //Request Object Detection Data 
             SmartImage: req.body.SmartImage 
         }
-        TempObjgetDicData  = ResObjgetDicData.SmartImage; //Set the Data to Temp : Why not storeing it right away beucuse to Conter the Deyla 
+        TempObjgetDicData  = ResObjgetDicData.SmartImage; //Set the Data to Temp : Why not storeing it right away because to counter the Delay 
         res.end("Object data received"); //Then End the Connection. 
         //console.log("Rover Motor Command Send To Rover")
     });
