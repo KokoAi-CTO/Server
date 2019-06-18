@@ -17,7 +17,7 @@ Requirements:
 
 -[VScode](https://code.visualstudio.com/download) to Setup 
 
--Code
+-Code Download the ZIP Above
 ### Setup
 **Step 1:**
 
