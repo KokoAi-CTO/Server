@@ -89,11 +89,11 @@ Get the IPv4 and Copy the address
 
 ![enter image description here](https://lh3.googleusercontent.com/kM6WoJG_86jvQg2FslgFd0slQ0KuU9znf2GHCpahkmsroFMzHc25ktNTvFgfJsy1bfTzseysS99g5w)
 
-*
 
 ```sh
 http://YOUR-IP:80 exp:  http://192.168.0.17:8
 ```
+Enter the Ip in youer Browser
 
 Done
 
