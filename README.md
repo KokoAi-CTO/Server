@@ -35,7 +35,7 @@ Open a Terminal
 
 ![enter image description here](https://lh3.googleusercontent.com/Mt2uzGpV_x7O2s80O_WUbnWCt6KlIcHPJLYO7fx_8vKehiYYo0aOFiy3DcvB2dTvw05Qmyj8gmYWRg)
 
-***Step 4:***
+**Step 4:**
 
 Install the dependencies
 
@@ -85,7 +85,7 @@ Finding your Local IP
 
 Get the IPv4 and Copy the address 
 
-**Step 7*
+**Step 7**
 
 ![enter image description here](https://lh3.googleusercontent.com/kM6WoJG_86jvQg2FslgFd0slQ0KuU9znf2GHCpahkmsroFMzHc25ktNTvFgfJsy1bfTzseysS99g5w)
 
@@ -95,7 +95,7 @@ Get the IPv4 and Copy the address
 http://YOUR-IP:80 exp:  http://192.168.0.17:8
 ```
 
-Done
+#Done
 
 ![enter image description here](https://lh3.googleusercontent.com/dmo4QI9A5kn3SJmGz_KmmFsX_8p2YfT_GJpc6vqYBBWGoigxHTNmcnasyjWRf25H8dA_dvARuHfbFg)
 
