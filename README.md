@@ -11,7 +11,9 @@ Things you Need to Download and Install
 
 Requirements:
 -[Node.js](https://nodejs.org/) to run.
+
 -[VScode](https://code.visualstudio.com/download) to Setup
+
 -Code
 ### Setup
 
