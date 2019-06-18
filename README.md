@@ -1,4 +1,4 @@
-# Welcome to a JAVA Rover 
+# Welcome to a JS Rover 
 
 Hi! **I'm am your Guide for today **Khalid**. Today I well be Guiding on how to Setup the Rover System.  If you want Start by reading the General Overview of how the System works in the **Theory** Folder.
 
