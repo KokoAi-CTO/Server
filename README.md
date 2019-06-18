@@ -1,9 +1,10 @@
-# Tutorials
+# Welcome to a JAVA Rover 
 
 Hi! **I'm am your Guide for today **Khalid**. Today I well be Guiding on how to Setup the Rover System.  If you want Start by reading the General Overview of how the System works in the Theory Folder.
 
-I Rcomand Starting with Local Server Tutorial
+I Recommend Starting with Local Server Tutorial
 
+Some HelpFull Skills : Network knowledge IPs Ports ext.. ,Basic use of commands in CMD like Directory/File Use  
 ## Local Server Tutorial
 
 **Installation**
