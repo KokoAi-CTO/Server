@@ -33,14 +33,16 @@ Open a Terminal - Make Sure it a CMD not PowerShell Should't Realy Matter
 
 Install the dependencies
 Commands
+Install the dependencies
 ```sh
- npm install 
+npm install 
 ```
 Run the Server
 ```sh
- npm start
+npm start
+```
+Go to youer Browser and Test out You Server on Local IP
+```sh
+http://192.168.0.17:80
 ```
 
-```sh
-127.0.0.1:8000
-```
